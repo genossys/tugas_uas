@@ -6,11 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{csrf_token()}}">
 
-    <title>PT. INVESTAMA KOMANDO
-        SECURITY</title>
+    <title>PT.</title>
     <!-- Fonts -->
-    {{--<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">--}}
-    {{--<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -30,7 +28,7 @@
     <link rel="stylesheet" href="{{asset('/css/datatables-bootstrap4.css')}}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+    <!--[if lt IE 9]-->
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <!-- jQuery 3 -->
@@ -59,8 +57,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg">PT. INVESTAMA KOMANDO
-SECURITY.</span>
+            <span class="logo-lg">PT. IKS</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
@@ -133,7 +130,7 @@ SECURITY.</span>
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('dataLelang') }}"><i class="fa fa-home"></i> Data Lelang</a></li>
-                        <li><a href=""><i class="fa fa-address-book"></i> Data Judul</a></li>
+                        <li><a href="{{ route('dataJadwal') }}"><i class="fa fa-address-book"></i> Data Judul</a></li>
                         <li><a href=""><i class="fa fa-industry"></i> Data Tahapan</a></li>
                     </ul>
                 </li>

@@ -1,3 +1,4 @@
+
 @extends('admin.master')
 
 @section('content')
@@ -16,8 +17,8 @@
         <div class="box">
             <div class="box-header with-border">
                 <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaltambahlelang">
-                    Tambah Data Lelang
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modaltambahjadwal">
+                    Tambah Data Jadwal
                 </button>
 
                 <div class="box-tools pull-right">
@@ -35,10 +36,10 @@
                         <thead>
                         <tr>
                             <th>#</th>
+                            <th>ID Jadwal</th>
                             <th>ID Lelang</th>
-                            <th>Kode Lelang</th>
-                            <th>Nama Lelang</th>
-                            <th>Link Website</th>
+                            <th>Pra-Qualifikasi</th>
+                            <th>Batas Upload</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -57,14 +58,14 @@
     <!-- /.content -->
 
     {{--modal tambah--}}
-    <div class="modal fade" id="modaltambahlelang">
+    <div class="modal fade" id="modaltambahjadwal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">x</button>
-                    <h4 class="modal-title">Form Tambah Data Lelang</h4>
-                </div>
+                    <h4 class="modal-title">Form Tambah Data Jadwal</h4>
 
+                </div>
                 <form action="" method="POST" id="formSimpanKelas">
                     {{ csrf_field() }}
                     <div class="modal-body">
@@ -73,18 +74,25 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label>ID Lelang</label>
-                                    <input type="text" class="form-control border border-primary" placeholder="ID Lelang" id="txtIdLelang"
+                                    <label>ID Jadwal</label>
+                                    <input type="text" class="form-control" placeholder="ID Lelang" id="txtIdLelang"
                                            name="txtIdLelang">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-5">
                                 <div class="form-group">
-                                    <label>Kode Lelang</label>
+                                    <label>ID Lelang</label>
                                     <input type="text" class="form-control" placeholder="Kode Lelang" id="txtKodeLelang"
                                            name="txtKodeLelang">
                                 </div>
                             </div>
+                            <div class="col-sm-1">
+                                <div class="form-group">
+                                    <button type="text" class="form-control" placeholder="Kode Lelang" id="txtKodeLelang"
+                                           name="txtKodeLelang">
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="row">
@@ -92,8 +100,8 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label>Nama Lelang</label>
-                                    <input type="text" class="form-control" placeholder="Nama Lelang" id="txtNamaLelang"
-                                           name="txtNamaLelang">
+                                    <input class='btn' id="txtNamaLelang"
+                                           name="txtNamaLelang"><i class='fa'></i></button>
                                 </div>
                             </div>
 
@@ -145,89 +153,35 @@
         </div>
     </div>
 
-    <div class="modal fade" id="modaleditlelang">
+    <div class="modal fade" id="modaleditjadwal">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Form Edit Data Lelang</h4>
+                        <h4 class="modal-title">Form Edit Data Kelas</h4>
                     </div>
                     <form action="" method="POST" id="formEditKelas">
                         {{ csrf_field() }}
                         <div class="modal-body">
-                        <div class="alert alert-danger" style="display:none"></div>
-                        <div class="alert alert-success" style="display:none"></div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>ID Lelang</label>
-                                    <input type="text" class="form-control" placeholder="ID Lelang" id="txtIdLelang"
-                                           name="txtIdLelang">
-                                </div>
+                            <div class="alert alert-danger" style="display:none"></div>
+                            <div class="alert alert-success" style="display:none"></div>
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" placeholder="ID Kelas" id="txtOldIdKelas"
+                                       name="txtOldIdKelas">
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Kode Lelang</label>
-                                    <input type="text" class="form-control" placeholder="Kode Lelang" id="txtKodeLelang"
-                                           name="txtKodeLelang">
-                                </div>
+                            <div class="form-group">
+                                <label>ID Kelas</label>
+                                <input type="text" class="form-control" placeholder="ID Kelas" id="txtIdKelasEdit"
+                                       name="txtIdKelasEdit">
                             </div>
-                        </div>
-
-                        <div class="row">
-
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label>Nama Lelang</label>
-                                    <input type="text" class="form-control" placeholder="Nama Lelang" id="txtNamaLelang"
-                                           name="txtNamaLelang">
-                                </div>
+                            <div class="form-group">
+                                <label>Nama Kelas</label>
+                                <input type="text" class="form-control" placeholder="Nama Kelas" id="txtNamaKelasEdit"
+                                       name="txtNamaKelasEdit">
                             </div>
-
-
+                            <button id="btnUpdate" class="btn btn-primary">Update</button>
                         </div>
-
-                        <div class="row">
-
-                            <div class="col-sm-4">
-                                <div class="form-group">
-                                    <label>Password Lelang</label>
-                                    <input type="text" class="form-control" placeholder="Password Lelang"
-                                           id="txtPswLelang"
-                                           name="txtPswLelang">
-                                </div>
-                            </div>
-
-                            <div class="col-sm-8">
-                                <div class="form-group">
-                                    <label>Link Website</label>
-                                    <input type="text" class="form-control" placeholder="Link Website" id="txtLinkWeb"
-                                           name="txtLinkWeb">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label>File Dok. Penawaran</label>
-                            <input type="file" class="custom-file-input" name="txtFoto" id="txtFoto" accept="image/*">
-                        </div>
-
-                        <div class="form-group">
-                            <label>File Dok. Teknis</label>
-                            <input type="file" class="custom-file-input" name="txtFoto" id="txtFoto" accept="image/*">
-                        </div>
-
-                        <div class="form-group">
-                            <label>File Dok. Kualifikasi</label>
-                            <input type="file" class="custom-file-input" name="txtFoto" id="txtFoto" accept="image/*">
-                        </div>
-                        <hr>
-
-                            <div class="text-right">
-                                <button id="btnSimpan" class="btn-lg btn-primary">Update</button>
-                            </div>
-                    </div>
 
                     </form>
                 </div>

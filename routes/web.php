@@ -50,13 +50,13 @@ Route::get('/admin', function () {
         return view('/admin/menuawal');
     });
 
-Route::get('/siswabaru', function () {
-    return view('/admin/master/tambahsiswa');
-})->name('siswabaru');
-
 Route::get('/datalelang', function () {
     return view('/admin/master/datalelang');
 })->name('dataLelang');
+
+Route::get('/datajadwal', function () {
+    return view('/admin/master/datajadwal');
+})->name('dataJadwal');
 
 });
 
