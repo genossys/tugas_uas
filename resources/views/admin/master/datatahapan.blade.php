@@ -56,7 +56,7 @@ Data tahapan
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>ID Lelang</label>
-                                <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdLelang" name="txtIdLelang">
+                                <input type="text" class="form-control autocomplete" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ Data tahapan
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>ID Lelang</label>
-                                    <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdLelang" name="txtIdLelang">
+                                    <input type="text" class="form-control autocomplete" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
                                 </div>
                             </div>
 
@@ -185,12 +185,13 @@ Data tahapan
 
     @section('css')
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/autotext.css')}}">
     @endsection
 
 
     @section('script')
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-
+    <script src="{{ asset('/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('/js/tampilan/autotextidlelang.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $(".datepicker").datepicker({
