@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 @section('judul')
-Data Jadwal
+Data tahapan
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@ Data Jadwal
 
 <!-- Button to Open the Modal -->
 <div>
-    <button style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" data-toggle="modal" data-target="#modaltambahJadwal">
-        Tambah Data Jadwal
+    <button style="margin-bottom: 10px; margin-top: 20px" type="button" class="btn btn-primary box-tools pull-right" data-toggle="modal" data-target="#modaltambahTahapan">
+        Tambah Data tahapan
     </button>
 
 </div>
@@ -20,10 +20,10 @@ Data Jadwal
         <thead>
             <tr>
                 <th>#</th>
-                <th>ID Jadwal</th>
+                <th>ID tahapan</th>
                 <th>ID Lelang</th>
-                <th>Jadwal Pra-Kualifikasi</th>
-                <th>Batas Upload</th>
+                <th>Batas Waktu Upload</th>
+                <th>Pekerjaan</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -32,15 +32,15 @@ Data Jadwal
 
 
 {{--modal tambah--}}
-<div class="modal fade" id="modaltambahJadwal">
+<div class="modal fade" id="modaltambahTahapan">
     <div class="modal-dialog  modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">Tambah Data jadwal</h4>
+                <h4 class="modal-title">Tambah Data tahapan</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
-            <form action="" method="POST" id="formSimpanJadwal">
+            <form action="" method="POST" id="formSimpanTahapan">
                 {{ csrf_field() }}
                 <div class="modal-body">
                     <div class="alert alert-danger" style="display:none"></div>
@@ -48,34 +48,20 @@ Data Jadwal
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label>ID Jadwal</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdJadwal" name="txtIdJadwal">
+                                <label>ID tahapan</label>
+                                <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdTahapan" name="txtIdTahapan">
                             </div>
                         </div>
 
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>ID Lelang</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
+                                <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdLelang" name="txtIdLelang">
                             </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Jadwal Pra-Kualifikasi</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control float-right datepicker" name="dateJadwalPraQ" id="dateJadwalPraQ">
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>Batas Upload</label>
@@ -94,8 +80,8 @@ Data Jadwal
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Ket. Jadwal</label>
-                                <textarea class="form-control" rows="3" id="txtKetJadwal" name="txtKetJadwal"></textarea>
+                                <label>Pekerjaan</label>
+                                <textarea class="form-control" rows="3" id="txtPekerjaan" name="txtPekerjaan"></textarea>
                             </div>
                         </div>
                     </div>
@@ -112,73 +98,77 @@ Data Jadwal
     </div>
 </div>
 
-<div class="modal fade" id="modaleditJadwal">
+<div class="modal fade" id="modaleditTahapan">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Form Edit Data jadwal</h4>
+                    <h4 class="modal-title">Form Edit Data tahapan</h4>
                 </div>
-                <form action="" method="POST" id="formEditJadwal">
+                <form action="" method="POST" id="formEditTahapan">
                     {{ csrf_field() }}
                     <div class="modal-body">
                         <div class="alert alert-danger" style="display:none"></div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ID Jadwal</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdJadwal" name="txtIdJadwal">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ID tahapan</label>
+                                    <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdTahapan" name="txtIdTahapan">
+                                </div>
                             </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ID Lelang</label>
+                                    <input type="text" class="form-control" placeholder="ID tahapan" id="txtIdLelang" name="txtIdLelang">
+                                </div>
+                            </div>
+
+
                         </div>
 
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ID Lelang</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Jadwal Pra-Kualifikasi</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control float-right datepicker" name="dateJadwalPraQ" id="dateJadwalPraQ">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Ket. tahapan</label>
+                                    <textarea class="form-control" rows="3" id="txtPswTahapan" name="txtPswTahapan"></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Batas Upload</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>tahapan Pra-Kualifikasi</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right datepicker" name="dateTahapanPraQ" id="dateTahapanPraQ">
                                     </div>
-                                    <input type="text" class="form-control float-right datepicker" name="dateBatasUp" id="dateBatasUp">
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Ket. Jadwal</label>
-                                <textarea class="form-control" rows="3" id="txtKetJadwal" name="txtKetJadwal"></textarea>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Batas Upload</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right datepicker" name="dateBatasUp" id="dateBatasUp">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                         <hr>
 

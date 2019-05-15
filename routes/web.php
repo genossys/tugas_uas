@@ -58,5 +58,9 @@ Route::get('/datajadwal', function () {
     return view('/admin/master/datajadwal');
 })->name('dataJadwal');
 
+Route::get('/datatahapan', function () {
+    return view('/admin/master/datatahapan');
+})->name('dataTahapan');
+
 });
 
