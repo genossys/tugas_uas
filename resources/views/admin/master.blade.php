@@ -51,7 +51,7 @@
                         <i class="fa fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                        <a href="#" class="dropdown-item dropdown-footer">Logout</a>
+                        <a href="{{route('logout')}}" class="dropdown-item dropdown-footer">Logout</a>
                     </div>
                 </li>
 
