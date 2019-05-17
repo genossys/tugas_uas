@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/login','AuthController@login')->name('login');
 Route::post('/postlogin','AuthController@postlogin');
 Route::get('/logout','AuthController@logout')->name('logout');
+Route::get('/cetak','cetakControl@index');
 
 Route::group(['middleware' => 'auth'],function(){
 
