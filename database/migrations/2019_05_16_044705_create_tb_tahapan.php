@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbKelas extends Migration
+class CreateTbTahapan extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateTbKelas extends Migration
      */
     public function up()
     {
-        Schema::create('tb_kelas', function (Blueprint $table) {
-            $table->string('idKelas', '10')->primary();
-            $table->string('namaKelas', '255');
+        Schema::create('tb_tahapan', function (Blueprint $table) {
+            $table->string('idTahapan','25')->primary();
+            $table->string('idLelang','10')->index();
+            $table->date('batasUpload');
+            $table->text('pekerjaan');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateTbKelas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_kelas');
+        Schema::dropIfExists('tb_tahapan');
     }
 }
