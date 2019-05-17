@@ -30,7 +30,6 @@ Data Jadwal
     </table>
 </div>
 
-
 {{--modal tambah--}}
 <div class="modal fade" id="modaltambahJadwal">
     <div class="modal-dialog  modal-lg">
@@ -56,9 +55,10 @@ Data Jadwal
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label>ID Lelang</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
+                                <input type="text" class="form-control autocomplete" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
                             </div>
                         </div>
+
                     </div>
 
                     <div class="row">
@@ -126,59 +126,59 @@ Data Jadwal
                         <div class="alert alert-danger" style="display:none"></div>
                         <div class="alert alert-success" style="display:none"></div>
                         <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ID Jadwal</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdJadwal" name="txtIdJadwal">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ID Jadwal</label>
+                                    <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdJadwal" name="txtIdJadwal">
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>ID Lelang</label>
-                                <input type="text" class="form-control" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Jadwal Pra-Kualifikasi</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
-                                    </div>
-                                    <input type="text" class="form-control float-right datepicker" name="dateJadwalPraQ" id="dateJadwalPraQ">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>ID Lelang</label>
+                                    <input type="text" class="form-control autocomplete" placeholder="ID jadwal" id="txtIdLelang" name="txtIdLelang">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label>Batas Upload</label>
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">
-                                            <i class="fa fa-calendar"></i>
-                                        </span>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Jadwal Pra-Kualifikasi</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right datepicker" name="dateJadwalPraQ" id="dateJadwalPraQ">
                                     </div>
-                                    <input type="text" class="form-control float-right datepicker" name="dateBatasUp" id="dateBatasUp">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Batas Upload</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fa fa-calendar"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" class="form-control float-right datepicker" name="dateBatasUp" id="dateBatasUp">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label>Ket. Jadwal</label>
-                                <textarea class="form-control" rows="3" id="txtKetJadwal" name="txtKetJadwal"></textarea>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label>Ket. Jadwal</label>
+                                    <textarea class="form-control" rows="3" id="txtKetJadwal" name="txtKetJadwal"></textarea>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                         <hr>
 
@@ -191,16 +191,19 @@ Data Jadwal
         </div>
     </div>
 
+
+
     @endsection
 
     @section('css')
     <link rel="stylesheet" href="{{ asset('/css/bootstrap-datepicker.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/autotext.css')}}">
     @endsection
 
 
     @section('script')
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>
-
+    <script src="{{ asset('/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('/js/tampilan/autotextidlelang.js') }}"></script>
     <script type="text/javascript">
         $(function() {
             $(".datepicker").datepicker({
